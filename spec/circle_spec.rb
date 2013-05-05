@@ -34,9 +34,13 @@ describe Circle do
     (-@circle.radius..@circle.radius).should cover @circle.x_point
   end 
 
-  it "should calculate the chord height from the x_point" do
-    @circle.y_chord_length.should == 2*sqrt((@circle.radius*@circle.radius)-())
+  it "should create a new point" do
+    @circle.point.should be_true
   end
+
+  it "should calculate the chord height from the x_point" do
+    @circle.y_chord_length.should == 2*sqrt((@circle.radius*@circle.radius)-(@circle.d*@circle.d))
+  end 
 
 
 

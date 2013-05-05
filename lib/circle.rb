@@ -8,6 +8,7 @@ class Circle
     else 
       @radius = radius
     end
+
   end
 
   def poke
@@ -23,7 +24,11 @@ class Circle
   end
 
   def point
-    Point.new()
+    x = self.x_point
+    d_value = x.abs
+    y_chord = y_chord_length(d_value)
+    y = rand[(-y_chord/2)..(y_chord/2)]    
+    point = Point.new(x, y)
   end 
 
   def get_rand
@@ -38,5 +43,11 @@ class Circle
     num = self.get_rand
     return num * rand(@radius)
   end
+
+  def y_chord_length(d)
+    2*sqrt((@circle.radius*@circle.radius)-(d*d))
+  end
+
+
 
 end
